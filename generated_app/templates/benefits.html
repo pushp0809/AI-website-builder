@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Benefits Overview - Employee Benefits Portal{% endblock %}
+
+{% block content %}
+<h1>Benefits Overview</h1>
+<p class="page-intro">We offer a comprehensive benefits package designed to support you and your family.</p>
+
+<div id="benefits-list" class="benefits-grid">
+    <!-- Benefits will be loaded dynamically -->
+    <div class="loading">Loading benefits...</div>
+</div>
+
+<script>
+async function loadBenefits() {
+    try {
+        const response = await fetch('/api/benefits');
+        const benefits = await response.json();
+        
+        const container = document.getElementById('benefits-list');
+        if (benefits.length === 0) {
+            container.innerHTML = '<p>No benefits available at this time.</p>';
+            return;
+        }
+        
+        container.innerHTML = benefits.map(benefit => `
+            <div class="benefit-card">
+                <span class="benefit-category">${benefit.category}</span>
+                <h3>${benefit.name}</h3>
+                <p>${benefit.description}</p>
+                ${benefit.eligibility_requirements ? `
+                    <p class="eligibility-req"><strong>Eligibility:</strong> ${benefit.eligibility_requirements}</p>
+                ` : ''}
+            </div>
+        `).join('');
+    } catch (error) {
+        document.getElementById('benefits-list').innerHTML = 
+            '<p class="error">Failed to load benefits. Please try again later.</p>';
+    }
+}
+loadBenefits();
+</script>
+{% endblock %}

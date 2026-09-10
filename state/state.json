@@ -1,0 +1,124 @@
+{
+  "pipeline_id": "20260910_204328",
+  "requirement": "Build an employee benefits portal",
+  "started_at": "2026-09-10T20:43:28.314920",
+  "current_phase": "final_review",
+  "phases": {
+    "requirements": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:28.315534",
+      "completed_at": "2026-09-10T20:43:28.317415",
+      "gate_status": "PASSED"
+    },
+    "design": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:28.317844",
+      "completed_at": "2026-09-10T20:43:28.319502",
+      "gate_status": "PASSED"
+    },
+    "api_spec": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:28.319917",
+      "completed_at": "2026-09-10T20:43:28.321238",
+      "gate_status": "PASSED"
+    },
+    "database": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:28.321458",
+      "completed_at": "2026-09-10T20:43:28.322708",
+      "gate_status": "PASSED"
+    },
+    "frontend": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:28.322934",
+      "completed_at": "2026-09-10T20:43:28.324825",
+      "gate_status": "PASSED"
+    },
+    "backend": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:28.325077",
+      "completed_at": "2026-09-10T20:43:28.326361",
+      "gate_status": "PASSED"
+    },
+    "integration": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:28.326609",
+      "completed_at": "2026-09-10T20:43:28.329310",
+      "gate_status": "PASSED"
+    },
+    "testing": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:28.329561",
+      "completed_at": "2026-09-10T20:43:30.318501",
+      "gate_status": "PASSED"
+    },
+    "security": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:30.319242",
+      "completed_at": "2026-09-10T20:43:30.324219",
+      "gate_status": "PASSED"
+    },
+    "documentation": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:30.324755",
+      "completed_at": "2026-09-10T20:43:30.326358",
+      "gate_status": "PASSED"
+    },
+    "final_review": {
+      "status": "COMPLETED",
+      "started_at": "2026-09-10T20:43:30.326705",
+      "completed_at": "2026-09-10T20:43:30.327514",
+      "gate_status": "PASSED"
+    }
+  },
+  "tasks": [],
+  "gates": {
+    "requirements": {
+      "passed": true,
+      "timestamp": "2026-09-10T20:43:28.317290",
+      "details": {}
+    },
+    "design": {
+      "passed": true,
+      "timestamp": "2026-09-10T20:43:28.319369",
+      "details": {}
+    },
+    "testing": {
+      "passed": true,
+      "timestamp": "2026-09-10T20:43:30.318240",
+      "details": {
+        "test_results": {
+          "success": true,
+          "artifacts": [
+            "artifacts/test_report.md"
+          ],
+          "summary": "Test execution complete. Passed: True",
+          "test_results": {
+            "passed": true,
+            "output": "============================= test session starts ==============================\nplatform linux -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3.12\ncachedir: .pytest_cache\nrootdir: /workspace\nconfigfile: pyproject.toml\nplugins: anyio-4.9.0, Faker-37.4.2, asyncio-1.4.0\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 14 items\n\ngenerated_app/integration_test.py::test_home_page PASSED                 [  7%]\ngenerated_app/integration_test.py::test_benefits_page PASSED             [ 14%]\ngenerated_app/integration_test.py::test_faq_page PASSED                  [ 21%]\ngenerated_app/integration_test.py::test_eligibility_page PASSED          [ 28%]\ngenerated_app/integration_test.py::test_contact_page PASSED              [ 35%]\ngenerated_app/integration_test.py::test_admin_page PASSED                [ 42%]\ngenerated_app/integration_test.py::test_api_benefits PASSED              [ 50%]\ngenerated_app/integration_test.py::test_api_faqs PASSED                  [ 57%]\ngenerated_app/integration_test.py::test_api_eligibility_valid PASSED     [ 64%]\ngenerated_app/integration_test.py::test_api_eligibility_invalid PASSED   [ 71%]\ngenerated_app/integration_test.py::test_api_contact_valid PASSED         [ 78%]\ngenerated_app/integration_test.py::test_api_contact_invalid_email PASSED [ 85%]\ngenerated_app/integration_test.py::test_api_contact_missing_field PASSED [ 92%]\ngenerated_app/integration_test.py::test_api_admin_messages PASSED        [100%]\n\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:323\n../usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:323\n  /usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/\n    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)\n\ngenerated_app/integration_test.py::test_home_page\ngenerated_app/integration_test.py::test_benefits_page\ngenerated_app/integration_test.py::test_faq_page\ngenerated_app/integration_test.py::test_eligibility_page\ngenerated_app/integration_test.py::test_contact_page\ngenerated_app/integration_test.py::test_admin_page\n  /usr/local/lib/python3.12/site-packages/starlette/templating.py:162: DeprecationWarning: The `name` is not the first parameter anymore. The first parameter should be the `Request` instance.\n  Replace `TemplateResponse(name, {\"request\": request})` by `TemplateResponse(request, name)`.\n    warnings.warn(\n\ngenerated_app/integration_test.py::test_api_eligibility_valid\ngenerated_app/integration_test.py::test_api_eligibility_invalid\ngenerated_app/integration_test.py::test_api_contact_valid\n  /usr/local/lib/python3.12/site-packages/sqlalchemy/sql/schema.py:3627: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 14 passed, 11 warnings in 1.03s ========================\n",
+            "test_type": "integration"
+          }
+        }
+      }
+    },
+    "security": {
+      "passed": true,
+      "timestamp": "2026-09-10T20:43:30.323990",
+      "details": {
+        "findings": []
+      }
+    }
+  },
+  "metrics": {
+    "total_tasks": 0,
+    "completed_tasks": 0,
+    "failed_tasks": 0,
+    "blocked_tasks": 0
+  },
+  "artifacts_generated": [],
+  "reports_generated": [],
+  "final_status": "SUCCESS",
+  "completed_at": "2026-09-10T20:43:30.327786",
+  "error_message": null,
+  "updated_at": "2026-09-10T20:43:30.327792"
+}

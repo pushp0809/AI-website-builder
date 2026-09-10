@@ -1,0 +1,13 @@
+```
+# Reports
+reports/
+
+# Artifacts
+artifacts/
+
+# Generated database
+generated_app/database.db
+
+# State files
+state/
+```
