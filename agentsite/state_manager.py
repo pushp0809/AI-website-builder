@@ -97,11 +97,29 @@ class StateManager:
 
     def complete_phase(self, phase: str, gate_passed: bool = True) -> None:
         """Mark phase as completed."""
+        if phase not in self.state["phases"]:
+            self.state["phases"][phase] = {
+                "status": PhaseStatus.IN_PROGRESS.value,
+                "started_at": datetime.now().isoformat(),
+            }
         if phase in self.state["phases"]:
             self.state["phases"][phase]["status"] = PhaseStatus.COMPLETED.value
             self.state["phases"][phase]["completed_at"] = datetime.now().isoformat()
             self.state["phases"][phase]["gate_status"] = "PASSED" if gate_passed else "FAILED"
         self.save()
+
+    def update_phase(self, phase: str, status: str) -> None:
+        """Update phase status."""
+        if phase not in self.state["phases"]:
+            self.state["phases"][phase] = {}
+        self.state["phases"][phase]["status"] = status
+        self.save()
+
+    def get_phase_status(self, phase: str) -> str | None:
+        """Get phase status."""
+        if phase in self.state["phases"]:
+            return self.state["phases"][phase].get("status")
+        return None
 
     def fail_phase(self, phase: str, reason: str) -> None:
         """Mark phase as failed."""

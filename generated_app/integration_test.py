@@ -139,4 +139,5 @@ def test_api_admin_messages():
 
 
 if __name__ == "__main__":
-    pytest.main([__file__, "-v"])
+    import pytest
+    pytest.main([__file__, "-v", "-p", "no:warnings"])

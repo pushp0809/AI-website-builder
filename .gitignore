@@ -1,16 +1,13 @@
 ```
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# Reports
+reports/
 
-# Directories
-*.egg-info/
-.eggs/
-.coverage
-htmlcov/
-.mypy_cache/
-.pytest_cache/
-.tox/
+# Artifacts
+artifacts/
+
+# Generated database
+generated_app/database.db
+
+# State files
+state/
 ```

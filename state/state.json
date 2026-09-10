@@ -1,73 +1,73 @@
 {
-  "pipeline_id": "20260910_195410",
+  "pipeline_id": "20260910_204328",
   "requirement": "Build an employee benefits portal",
-  "started_at": "2026-09-10T19:54:10.943796",
+  "started_at": "2026-09-10T20:43:28.314920",
   "current_phase": "final_review",
   "phases": {
     "requirements": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:10.944253",
-      "completed_at": "2026-09-10T19:54:10.945883",
+      "started_at": "2026-09-10T20:43:28.315534",
+      "completed_at": "2026-09-10T20:43:28.317415",
       "gate_status": "PASSED"
     },
     "design": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:10.946226",
-      "completed_at": "2026-09-10T19:54:10.947824",
+      "started_at": "2026-09-10T20:43:28.317844",
+      "completed_at": "2026-09-10T20:43:28.319502",
       "gate_status": "PASSED"
     },
     "api_spec": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:10.948214",
-      "completed_at": "2026-09-10T19:54:10.949470",
+      "started_at": "2026-09-10T20:43:28.319917",
+      "completed_at": "2026-09-10T20:43:28.321238",
       "gate_status": "PASSED"
     },
     "database": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:10.949716",
-      "completed_at": "2026-09-10T19:54:10.951127",
+      "started_at": "2026-09-10T20:43:28.321458",
+      "completed_at": "2026-09-10T20:43:28.322708",
       "gate_status": "PASSED"
     },
     "frontend": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:10.951359",
-      "completed_at": "2026-09-10T19:54:10.954157",
+      "started_at": "2026-09-10T20:43:28.322934",
+      "completed_at": "2026-09-10T20:43:28.324825",
       "gate_status": "PASSED"
     },
     "backend": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:10.954396",
-      "completed_at": "2026-09-10T19:54:10.955793",
+      "started_at": "2026-09-10T20:43:28.325077",
+      "completed_at": "2026-09-10T20:43:28.326361",
       "gate_status": "PASSED"
     },
     "integration": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:10.956035",
-      "completed_at": "2026-09-10T19:54:10.958708",
+      "started_at": "2026-09-10T20:43:28.326609",
+      "completed_at": "2026-09-10T20:43:28.329310",
       "gate_status": "PASSED"
     },
     "testing": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:10.958934",
-      "completed_at": "2026-09-10T19:54:11.857468",
-      "gate_status": "FAILED"
+      "started_at": "2026-09-10T20:43:28.329561",
+      "completed_at": "2026-09-10T20:43:30.318501",
+      "gate_status": "PASSED"
     },
     "security": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:11.857964",
-      "completed_at": "2026-09-10T19:54:11.863063",
+      "started_at": "2026-09-10T20:43:30.319242",
+      "completed_at": "2026-09-10T20:43:30.324219",
       "gate_status": "PASSED"
     },
     "documentation": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:11.863525",
-      "completed_at": "2026-09-10T19:54:11.865235",
+      "started_at": "2026-09-10T20:43:30.324755",
+      "completed_at": "2026-09-10T20:43:30.326358",
       "gate_status": "PASSED"
     },
     "final_review": {
       "status": "COMPLETED",
-      "started_at": "2026-09-10T19:54:11.865549",
-      "completed_at": "2026-09-10T19:54:11.866480",
+      "started_at": "2026-09-10T20:43:30.326705",
+      "completed_at": "2026-09-10T20:43:30.327514",
       "gate_status": "PASSED"
     }
   },
@@ -75,27 +75,27 @@
   "gates": {
     "requirements": {
       "passed": true,
-      "timestamp": "2026-09-10T19:54:10.945729",
+      "timestamp": "2026-09-10T20:43:28.317290",
       "details": {}
     },
     "design": {
       "passed": true,
-      "timestamp": "2026-09-10T19:54:10.947680",
+      "timestamp": "2026-09-10T20:43:28.319369",
       "details": {}
     },
     "testing": {
-      "passed": false,
-      "timestamp": "2026-09-10T19:54:11.857226",
+      "passed": true,
+      "timestamp": "2026-09-10T20:43:30.318240",
       "details": {
         "test_results": {
-          "success": false,
+          "success": true,
           "artifacts": [
             "artifacts/test_report.md"
           ],
-          "summary": "Test execution complete. Passed: False",
+          "summary": "Test execution complete. Passed: True",
           "test_results": {
-            "passed": false,
-            "output": "Traceback (most recent call last):\n  File \"/usr/local/bin/pytest\", line 8, in <module>\n    sys.exit(_console_main())\n             ^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 253, in _console_main\n    code = _main(prog=_get_prog_name(sys.argv))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 223, in _main\n    config = _prepareconfig(new_args, plugins, prog=prog)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 410, in _prepareconfig\n    config: Config = pluginmanager.hook.pytest_cmdline_parse(\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_hooks.py\", line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(), kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_manager.py\", line 120, in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 167, in _multicall\n    raise exception\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 139, in _multicall\n    teardown.throw(exception)\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/helpconfig.py\", line 124, in pytest_cmdline_parse\n    config = yield\n             ^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 121, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1232, in pytest_cmdline_parse\n    self.parse(args)\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/config/__init__.py\", line 1583, in parse\n    self.pluginmanager.load_setuptools_entrypoints(\"pytest11\")\n  File \"/usr/local/lib/python3.12/site-packages/pluggy/_manager.py\", line 416, in load_setuptools_entrypoints\n    plugin = ep.load()\n             ^^^^^^^^^\n  File \"/usr/local/lib/python3.12/importlib/metadata/__init__.py\", line 205, in load\n    module = import_module(match.group('module'))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/assertion/rewrite.py\", line 188, in exec_module\n    exec(co, module.__dict__)\n  File \"/usr/local/lib/python3.12/site-packages/libtmux/pytest_plugin.py\", line 53, in <module>\n    @pytest.mark.skipif(USING_ZSH, reason=\"Using ZSH\")\n     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/mark/structures.py\", line 415, in __call__\n    store_mark(unwrapped_func, self.mark)\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/mark/structures.py\", line 491, in store_mark\n    fail(\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/outcomes.py\", line 162, in __call__\n    raise Failed(msg=reason, pytrace=pytrace)\nFailed: Marks cannot be applied to fixtures.\nSee docs: https://docs.pytest.org/en/stable/deprecations.html#applying-a-mark-to-a-fixture-function\n",
+            "passed": true,
+            "output": "============================= test session starts ==============================\nplatform linux -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3.12\ncachedir: .pytest_cache\nrootdir: /workspace\nconfigfile: pyproject.toml\nplugins: anyio-4.9.0, Faker-37.4.2, asyncio-1.4.0\nasyncio: mode=Mode.AUTO, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function\ncollecting ... collected 14 items\n\ngenerated_app/integration_test.py::test_home_page PASSED                 [  7%]\ngenerated_app/integration_test.py::test_benefits_page PASSED             [ 14%]\ngenerated_app/integration_test.py::test_faq_page PASSED                  [ 21%]\ngenerated_app/integration_test.py::test_eligibility_page PASSED          [ 28%]\ngenerated_app/integration_test.py::test_contact_page PASSED              [ 35%]\ngenerated_app/integration_test.py::test_admin_page PASSED                [ 42%]\ngenerated_app/integration_test.py::test_api_benefits PASSED              [ 50%]\ngenerated_app/integration_test.py::test_api_faqs PASSED                  [ 57%]\ngenerated_app/integration_test.py::test_api_eligibility_valid PASSED     [ 64%]\ngenerated_app/integration_test.py::test_api_eligibility_invalid PASSED   [ 71%]\ngenerated_app/integration_test.py::test_api_contact_valid PASSED         [ 78%]\ngenerated_app/integration_test.py::test_api_contact_invalid_email PASSED [ 85%]\ngenerated_app/integration_test.py::test_api_contact_missing_field PASSED [ 92%]\ngenerated_app/integration_test.py::test_api_admin_messages PASSED        [100%]\n\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:323\n../usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:323\n  /usr/local/lib/python3.12/site-packages/pydantic/_internal/_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/\n    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)\n\ngenerated_app/integration_test.py::test_home_page\ngenerated_app/integration_test.py::test_benefits_page\ngenerated_app/integration_test.py::test_faq_page\ngenerated_app/integration_test.py::test_eligibility_page\ngenerated_app/integration_test.py::test_contact_page\ngenerated_app/integration_test.py::test_admin_page\n  /usr/local/lib/python3.12/site-packages/starlette/templating.py:162: DeprecationWarning: The `name` is not the first parameter anymore. The first parameter should be the `Request` instance.\n  Replace `TemplateResponse(name, {\"request\": request})` by `TemplateResponse(request, name)`.\n    warnings.warn(\n\ngenerated_app/integration_test.py::test_api_eligibility_valid\ngenerated_app/integration_test.py::test_api_eligibility_invalid\ngenerated_app/integration_test.py::test_api_contact_valid\n  /usr/local/lib/python3.12/site-packages/sqlalchemy/sql/schema.py:3627: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    return util.wrap_callable(lambda ctx: fn(), fn)  # type: ignore\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================= 14 passed, 11 warnings in 1.03s ========================\n",
             "test_type": "integration"
           }
         }
@@ -103,7 +103,7 @@
     },
     "security": {
       "passed": true,
-      "timestamp": "2026-09-10T19:54:11.862834",
+      "timestamp": "2026-09-10T20:43:30.323990",
       "details": {
         "findings": []
       }
@@ -118,7 +118,7 @@
   "artifacts_generated": [],
   "reports_generated": [],
   "final_status": "SUCCESS",
-  "completed_at": "2026-09-10T19:54:11.866745",
+  "completed_at": "2026-09-10T20:43:30.327786",
   "error_message": null,
-  "updated_at": "2026-09-10T19:54:11.866750"
+  "updated_at": "2026-09-10T20:43:30.327792"
 }

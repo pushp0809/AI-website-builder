@@ -3,7 +3,7 @@ Uses SYNTHETIC DATA ONLY - no real personal information."""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Base, Benefit, FAQ, EligibilitySubmission, ContactMessage
+from generated_app.models import Base, Benefit, FAQ, EligibilitySubmission, ContactMessage
 
 # Synthetic benefits data
 BENEFITS_DATA = [

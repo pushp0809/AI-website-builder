@@ -1,6 +1,7 @@
 """FastAPI application for Employee Benefits Portal."""
 
 import os
+from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -8,12 +9,15 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from models import Base
-from routes import router
-from seed_data import seed_database
+from generated_app.models import Base
+from generated_app.routes import router
+from generated_app.seed_data import seed_database
+
+# Get the directory where this file is located
+BASE_DIR = Path(__file__).parent
 
 # Configuration from environment
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./database.db")
+DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{BASE_DIR}/database.db")
 SECRET_KEY = os.getenv("SECRET_KEY", "change-this-in-production")
 
 # Database setup
@@ -33,11 +37,11 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# Mount static files
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Mount static files using absolute path
+app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
 
-# Templates
-templates = Jinja2Templates(directory="templates")
+# Templates using absolute path
+templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 # Include API routes
 app.include_router(router)
