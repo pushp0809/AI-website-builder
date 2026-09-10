@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Eligibility Checker - Employee Benefits Portal{% endblock %}
+
+{% block content %}
+<h1>Benefits Eligibility Checker</h1>
+<p class="page-intro">Find out which benefits you're eligible for based on your employment details.</p>
+
+<form id="eligibility-form" class="form" onsubmit="return checkEligibility(event)">
+    <div class="form-group">
+        <label for="employment_type">Employment Type</label>
+        <select id="employment_type" name="employment_type" required>
+            <option value="">Select employment type</option>
+            <option value="full-time">Full-time</option>
+            <option value="part-time">Part-time</option>
+            <option value="contractor">Contractor</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="hours_per_week">Hours Per Week</label>
+        <input type="number" id="hours_per_week" name="hours_per_week" 
+               min="0" max="100" required placeholder="e.g., 40">
+    </div>
+    
+    <div class="form-group">
+        <label for="tenure_months">Months of Employment</label>
+        <input type="number" id="tenure_months" name="tenure_months" 
+               min="0" max="600" required placeholder="e.g., 6">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Check Eligibility</button>
+</form>
+
+<div id="eligibility-result" class="result-box" style="display: none;">
+    <!-- Results will be displayed here -->
+</div>
+
+<script>
+async function checkEligibility(event) {
+    event.preventDefault();
+    
+    const formData = {
+        employment_type: document.getElementById('employment_type').value,
+        hours_per_week: parseInt(document.getElementById('hours_per_week').value),
+        tenure_months: parseInt(document.getElementById('tenure_months').value)
+    };
+    
+    const resultBox = document.getElementById('eligibility-result');
+    resultBox.style.display = 'block';
+    resultBox.innerHTML = '<p>Checking eligibility...</p>';
+    
+    try {
+        const response = await fetch('/api/eligibility', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.eligible) {
+            resultBox.className = 'result-box success';
+            resultBox.innerHTML = `
+                <h3>✓ You are eligible for benefits!</h3>
+                <p>${result.reason}</p>
+                <p>You qualify for ${result.benefits.length} benefit(s).</p>
+                <a href="/benefits" class="btn btn-primary">View Available Benefits</a>
+            `;
+        } else {
+            resultBox.className = 'result-box error';
+            resultBox.innerHTML = `
+                <h3>✗ Not currently eligible</h3>
+                <p>${result.reason}</p>
+                <p>Contact HR if you have questions about your eligibility status.</p>
+            `;
+        }
+    } catch (error) {
+        resultBox.className = 'result-box error';
+        resultBox.innerHTML = '<p class="error">Failed to check eligibility. Please try again.</p>';
+    }
+    
+    return false;
+}
+</script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Employee Benefits Portal{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Welcome to the Employee Benefits Portal</h1>
+    <p class="hero-subtitle">Your comprehensive resource for understanding and managing your employee benefits.</p>
+    <div class="hero-actions">
+        <a href="/benefits" class="btn btn-primary">View Benefits</a>
+        <a href="/eligibility" class="btn btn-secondary">Check Eligibility</a>
+    </div>
+</section>
+
+<section class="features">
+    <h2>What You Can Do Here</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>📋 Browse Benefits</h3>
+            <p>Explore all available benefits including health insurance, retirement plans, and more.</p>
+            <a href="/benefits">Learn more →</a>
+        </div>
+        <div class="feature-card">
+            <h3>❓ Get Answers</h3>
+            <p>Find answers to frequently asked questions about your benefits.</p>
+            <a href="/faq">View FAQs →</a>
+        </div>
+        <div class="feature-card">
+            <h3>✓ Check Eligibility</h3>
+            <p>Determine which benefits you're eligible for based on your employment status.</p>
+            <a href="/eligibility">Check now →</a>
+        </div>
+        <div class="feature-card">
+            <h3>📧 Contact Support</h3>
+            <p>Have questions? Reach out to our HR support team for assistance.</p>
+            <a href="/contact">Get in touch →</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
