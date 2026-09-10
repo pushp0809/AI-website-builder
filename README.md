@@ -1,0 +1,263 @@
+# AgentSite - Multi-Agent Website Building Framework
+
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+AgentSite is a production-quality multi-agent framework that automatically builds websites from natural language requirements. It orchestrates 10 specialized AI agents to design, build, test, secure, and document complete web applications.
+
+## Features
+
+- **10 Specialized AI Agents**: Product Manager, Designer, Frontend/Backend Developers, QA Engineer, Security Auditor, and more
+- **Quality Gates**: Automated validation between each phase ensures high-quality output
+- **Mock & Real LLM Support**: Works with MockLLM for testing or RealLLM (OpenAI/Qwen compatible) for production
+- **Complete Applications**: Generates working FastAPI + Jinja2 applications with SQLite database
+- **Security First**: Built-in security auditing with vulnerability detection
+- **Comprehensive Documentation**: Auto-generates README, architecture docs, and demo scripts
+
+## Quick Start
+
+```bash
+# Install dependencies
+pip install -e .
+
+# Run the framework with a requirement
+python cli.py run "Build an employee benefits portal"
+
+# Run the generated application
+python -m uvicorn generated_app.main:app --host 0.0.0.0 --port 8000
+
+# Open in browser
+open http://localhost:8000
+```
+
+## Architecture
+
+```mermaid
+graph TB
+    User[User Requirement] --> Orchestrator
+    
+    subgraph Orchestrator["Orchestrator"]
+        PM[Project Manager]
+        TG[Task Generator]
+        VG[Validation Gates]
+    end
+    
+    subgraph Agents["Specialist Agents"]
+        PA[ProductAgent]
+        DA[DesignAgent]
+        FA[FrontendAgent]
+        BA[BackendAgent]
+        DBA[DatabaseAgent]
+        IA[IntegrationAgent]
+        QA[QAValidatorAgent]
+        SA[SecurityAuditorAgent]
+        DocA[DocumentationAgent]
+        CA[CriticAgent]
+    end
+    
+    subgraph Storage["Storage"]
+        AS[Artifact Store]
+        SM[State Manager]
+    end
+    
+    Orchestrator --> Agents
+    Agents --> Storage
+    VG --> CA
+```
+
+## Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `python cli.py init` | Initialize project structure |
+| `python cli.py run "<requirement>"` | Run full pipeline with requirement |
+| `python cli.py validate` | Validate generated artifacts |
+| `python cli.py security` | Run security audit |
+| `python cli.py docs` | Show documentation |
+| `python cli.py report` | Generate execution report |
+
+## Pipeline Phases
+
+1. **Requirements** - ProductAgent generates PRD, user stories, assumptions
+2. **Design** - DesignAgent creates sitemap, design spec, architecture
+3. **API Spec** - APISpecAgent produces OpenAPI specification
+4. **Database** - DatabaseAgent designs schema, models, seed data
+5. **Frontend** - FrontendAgent builds HTML templates and CSS
+6. **Backend** - BackendAgent implements FastAPI routes and logic
+7. **Integration** - IntegrationAgent assembles the application
+8. **Testing** - QAValidatorAgent runs tests and generates report
+9. **Security** - SecurityAuditorAgent audits code for vulnerabilities
+10. **Documentation** - DocumentationAgent writes README and guides
+11. **Final Review** - CriticAgent validates all outputs
+
+## Generated Application Structure
+
+```
+generated_app/
+├── main.py              # FastAPI application
+├── models.py            # SQLAlchemy ORM models
+├── routes.py            # API routes
+├── schemas.py           # Pydantic schemas
+├── seed_data.py         # Synthetic seed data
+├── integration_test.py  # Integration tests
+├── templates/           # Jinja2 HTML templates
+│   ├── base.html
+│   ├── home.html
+│   ├── benefits.html
+│   ├── faq.html
+│   ├── eligibility.html
+│   ├── contact.html
+│   └── admin.html
+└── static/
+    └── style.css        # Application styles
+```
+
+## Generated Artifacts
+
+The framework produces 11 required artifacts in `/artifacts`:
+
+1. `01_prd.md` - Product Requirements Document
+2. `02_user_stories.md` - User Stories with acceptance criteria
+3. `03_sitemap.md` - Site structure and navigation
+4. `04_design_spec.md` - Visual design specifications
+5. `05_api_spec.yaml` - OpenAPI specification
+6. `06_database_schema.sql` - Database schema
+7. `07_test_plan.md` - Testing strategy
+8. `08_security_report.md` - Security audit findings
+9. `09_assumptions.md` - Project assumptions
+10. `10_architecture.md` - Technical architecture
+11. `11_demo_script.md` - Presentation demo script
+
+## Configuration
+
+Copy `.env.example` to `.env`:
+
+```bash
+# Environment Configuration
+LLM_MODE=mock                    # 'mock' or 'real'
+OPENAI_API_KEY=your_key_here     # Required for real LLM mode
+OPENAI_BASE_URL=https://api.openai.com/v1
+LLM_MODEL=gpt-4o-mini
+
+# Application Settings
+APP_HOST=0.0.0.0
+APP_PORT=8000
+DEBUG=false
+
+# Database
+DATABASE_URL=sqlite:///generated_app/database.db
+
+# Security
+SECRET_KEY=change-this-in-production
+```
+
+## Demo Application: Employee Benefits Portal
+
+The framework generates a complete Employee Benefits Portal with:
+
+### Pages
+- **Home** - Welcome page with feature highlights
+- **Benefits** - Browse available benefits with categories
+- **FAQ** - Searchable frequently asked questions
+- **Eligibility** - Check benefit eligibility with instant results
+- **Contact** - Submit support requests to HR
+- **Admin** - View submitted messages
+
+### Features
+- Responsive design (mobile/desktop)
+- Dynamic content loading via API
+- Form validation (client & server-side)
+- Success/error feedback
+- Professional styling
+- Accessible navigation
+
+### Database Tables
+- `benefits` - Available employee benefits
+- `faqs` - Frequently asked questions
+- `eligibility_submissions` - Eligibility check history
+- `contact_messages` - Support requests
+
+## Security Features
+
+- ✅ SQL injection prevention (SQLAlchemy ORM)
+- ✅ XSS prevention (Jinja2 auto-escaping)
+- ✅ Input validation (Pydantic schemas)
+- ✅ No hardcoded secrets
+- ✅ Environment-based configuration
+- ✅ Generic error messages (no stack traces)
+- ✅ Security audit reports
+
+## Testing
+
+```bash
+# Run integration tests
+pytest generated_app/integration_test.py -v
+
+# Run framework tests
+pytest tests/ -v
+```
+
+## Development
+
+```bash
+# Install in development mode
+pip install -e ".[dev]"
+
+# Run linting
+black agentsite/ --check
+flake8 agentsite/
+
+# Run tests
+pytest tests/ -v --cov=agentsite
+```
+
+## Known Limitations
+
+1. **Demo Mode**: Uses synthetic data only - not for production use
+2. **Authentication**: Admin endpoints have no access control in demo
+3. **Database**: SQLite used for simplicity - consider PostgreSQL for production
+4. **LLM Dependency**: Quality depends on LLM capabilities (better with GPT-4/Claude)
+5. **Browser Testing**: Basic HTTP tests only - no Playwright integration by default
+
+## Extending AgentSite
+
+### Adding a New Agent
+
+```python
+from agentsite.agents.base_agent import BaseAgent
+from agentsite.agents.registry import AgentRegistry
+
+@AgentRegistry.register
+class MyCustomAgent(BaseAgent):
+    name = "MyCustomAgent"
+    role = "Custom Role"
+    system_prompt = "Your custom system prompt"
+    
+    def execute(self, task_input: dict) -> dict:
+        # Your implementation
+        return {"success": True, "artifacts": []}
+```
+
+### Adding Custom Tools
+
+See `agentsite/tools/__init__.py` for tool implementations.
+
+## Interview Demo Script
+
+See [`DEMO_SCRIPT.md`](DEMO_SCRIPT.md) for a complete 5-7 minute demo presentation.
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Credits
+
+Built with:
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Jinja2](https://jinja.palletsprojects.com/)
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+- [Pydantic](https://docs.pydantic.dev/)
+
+---
+
+*Generated by AgentSite v0.1.0*

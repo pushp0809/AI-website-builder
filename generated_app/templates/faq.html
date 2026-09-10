@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ - Employee Benefits Portal{% endblock %}
+
+{% block content %}
+<h1>Frequently Asked Questions</h1>
+<p class="page-intro">Find answers to common questions about your benefits.</p>
+
+<div class="search-box">
+    <input type="text" id="faq-search" placeholder="Search FAQs..." aria-label="Search FAQs">
+</div>
+
+<div id="faqs-list" class="faqs-list">
+    <!-- FAQs will be loaded dynamically -->
+    <div class="loading">Loading FAQs...</div>
+</div>
+
+<script>
+async function loadFAQs() {
+    try {
+        const response = await fetch('/api/faqs');
+        const faqs = await response.json();
+        
+        const container = document.getElementById('faqs-list');
+        if (faqs.length === 0) {
+            container.innerHTML = '<p>No FAQs available at this time.</p>';
+            return;
+        }
+        
+        container.innerHTML = faqs.map((faq, index) => `
+            <details class="faq-item">
+                <summary>${faq.question}</summary>
+                <p>${faq.answer}</p>
+            </details>
+        `).join('');
+    } catch (error) {
+        document.getElementById('faqs-list').innerHTML = 
+            '<p class="error">Failed to load FAQs. Please try again later.</p>';
+    }
+}
+
+// Search functionality
+document.getElementById('faq-search')?.addEventListener('input', function(e) {
+    const search = e.target.value.toLowerCase();
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(search) ? '' : 'none';
+    });
+});
+
+loadFAQs();
+</script>
+{% endblock %}

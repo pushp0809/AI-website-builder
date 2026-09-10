@@ -1,0 +1,16 @@
+```
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Directories
+*.egg-info/
+.eggs/
+.coverage
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.tox/
+```

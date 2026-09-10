@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Employee Benefits Portal{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="/" class="logo">BenefitsPortal</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/benefits">Benefits</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/eligibility">Eligibility</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/admin" class="admin-link">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Employee Benefits Portal. All rights reserved.</p>
+            <p class="disclaimer">This is a demo application using synthetic data only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        document.querySelector('.nav-toggle')?.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
