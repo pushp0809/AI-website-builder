@@ -28,3 +28,4 @@ agentsite/agents/qa_validator_agent.py
 agentsite/agents/registry.py
 agentsite/agents/security_auditor_agent.py
 agentsite/tools/__init__.py
+tests/test_agentsite.py

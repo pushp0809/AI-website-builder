@@ -6,8 +6,8 @@ from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 
-from generated_app.models import Benefit, FAQ, EligibilitySubmission, ContactMessage
-from generated_app.schemas import (
+from models import Benefit, FAQ, EligibilitySubmission, ContactMessage
+from schemas import (
     BenefitResponse,
     FAQResponse,
     EligibilityRequest,
@@ -21,7 +21,7 @@ router = APIRouter(prefix="/api")
 
 def get_db():
     """Dependency for database session."""
-    from generated_app.main import SessionLocal
+    from main import SessionLocal
     db = SessionLocal()
     try:
         yield db
