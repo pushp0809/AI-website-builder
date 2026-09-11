@@ -3,7 +3,7 @@ Uses SYNTHETIC DATA ONLY - no real personal information."""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from generated_app.models import Base, Benefit, FAQ, EligibilitySubmission, ContactMessage
+from models import Base, Benefit, FAQ, EligibilitySubmission, ContactMessage
 
 # Synthetic benefits data
 BENEFITS_DATA = [
@@ -75,9 +75,8 @@ FAQS_DATA = [
 ]
 
 
-def seed_database(db_path: str = "./database.db"):
+def seed_database(db_url: str = "sqlite:///generated_app/database.db"):
     """Populate database with synthetic seed data."""
-    db_url = f"sqlite:///{db_path}"
     engine = create_engine(db_url)
     Base.metadata.create_all(engine)
     

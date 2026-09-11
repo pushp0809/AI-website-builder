@@ -78,7 +78,8 @@ class TestTaskManager:
             goal="Run tests",
             definition_of_done="Tests pass"
         )
-        updated = manager.update_status("test_002", "COMPLETED")
+        from agentsite.state_manager import TaskStatus
+        updated = manager.update_status("test_002", TaskStatus.COMPLETED)
         assert updated["status"] == "COMPLETED"
 
 
